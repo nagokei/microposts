@@ -6,14 +6,15 @@
             <%= f.label :name %>
             <%= f.text_field :name, class: 'form-control' %>
             
+            <%= f.label :profile %>
+            <%= f.text_area :profile, class: 'form-control' %>
+            
             <%= f.label :email %>
             <%= f.email_field :email, class: 'form-control' %>
             
             <%= f.label :password, "new passowrd" %>
             <%= f.text_field :password, class: 'form-control' %>
             
-            <%= f.label :password_confirmation, "Confirmation" %>
-            <%= f.password_field :password_confirmation, class: 'form-control' %>
             
             <%= f.submit "Edit my profile", class: "btn btn-primary" %>
         <% end %>
