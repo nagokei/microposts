@@ -4,7 +4,7 @@
 </h1>
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
-        <% if @user.profile %>
+        <% if @user.profile.present? %>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h2 class="panel-title">My profile</h2>
@@ -15,13 +15,15 @@
         </div>
         <% end %>
         
+        <% if @user.area.present? %>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h2 class="panel-title">Area</h2>
             </div>
             <div class="panel-body">
-                tokyo japan
+                <%= @user.area %>
             </div>
         </div>
+        <% end %>
     </div>
 </div>

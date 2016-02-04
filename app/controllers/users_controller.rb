@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
-  before_action :check_user, only: [:show, :edit, :update]
-  
+  before_action :logged_in_user, only: [:edit, :updatell]
   def show
   end
   
@@ -36,11 +35,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
-  def check_user
-    redirect_to root_path if @user != current_user
-  end
-  
   def user_params
-    params.require(:user).permit(:name, :email, :profile, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :profile, :area, :password, :password_confirmation)
   end
 end
