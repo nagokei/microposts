@@ -1,2 +1,2 @@
-<p><%= link_to "followings : #{current_user.following_relationships.count}", followings_path %></p>
-<p><%= link_to "followers : #{current_user.follower_relationships.count}", followers_path %></p>
+<p><%= link_to "followings : #{@user.following_relationships.count}", followings_path(@user) %></p>
+<p><%= link_to "followers : #{@user.follower_relationships.count}", followers_path(@user) %></p>
