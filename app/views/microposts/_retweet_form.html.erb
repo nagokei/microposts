@@ -1,0 +1,7 @@
+<div id="follow_form">
+<% if current_user.retweeting?(@micropost) %>
+    <%= render 'microposts/unretweet' %>
+<% else %>
+    <%= render 'microposts/retweet' %>
+<% end %>
+</div>

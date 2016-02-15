@@ -9,6 +9,7 @@
                 <span class="glyphicon glyphicon-trash"></span>
             <% end %>
         <% else %>
+            <div><%= render 'microposts/retweet_form' %></div>
             <div><%= render 'users/favorite_form' %></div>
         <% end %>
     </span>
