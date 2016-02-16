@@ -37,21 +37,20 @@ class User < ActiveRecord::Base
     
     
     # favarite
-    has_many :favorite_favorites, class_name: "Favorite",
-                                  foreign_key: "favor_id",
-                                  dependent: :destroy
-    has_many :favorite_micropost, through: :favorite_favorites, source: :favored
-    
-    def favorite(other_micropost)
-        favorite_favorites.find_or_create_by(favored_id: other_micropost.id)
+    has_many :favorites,           dependent: :destroy
+    has_many :favorite_microposts, through: :favorites,
+                                   class_name: 'Micropost'
+
+    def favorite(micropost)
+        favorites.find_or_create_by(micropost_id: micropost.id)
     end
     
-    def unfavorite(other_micropost)
-        favorite_favorite = favorite_favorites.find_by(favored_id: other_micropost.id)
-        favorite_favorite.destroy if favoring_favarite
+    def unfavorite(micropost)
+        favarite = favorites.find_by(mocropost_id: micropost.id)
+        favorite.destroy if favorite
     end
     
-    def favoriting?(other_micropost)
-        favorite_micropost.include?(other_micropost)
+    def favorite?(micropost)
+        favorites.include?(micropost)
     end
 end

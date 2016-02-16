@@ -9,6 +9,12 @@ class Micropost < ActiveRecord::Base
                                  dependent: :destroy
   has_many :retweeting_microposts, through: :retweeting_retweets, source: :retweeted
   
+  
+  #favorite
+  has_many :favorites, dependent: :destroy
+  has_many :fovored_user, through: :favorites,
+                          class_name: 'User'
+  
   def retweet(other_microposts)
     retweeting_retweets.find_or_create_by(retweeted_id: other_microposts.id)
   end
