@@ -1,0 +1,11 @@
+<div>
+<% unless @user.profile.blank? %>
+  <h4>Profile</h4>
+  <p><%= @user.profile %></p>
+<% end %>
+        
+<% unless @user.area.blank? %>
+  <h4>Area</h4>
+  <p><%= @user.area %></p>
+<% end %>
+</div>

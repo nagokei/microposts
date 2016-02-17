@@ -1,0 +1,7 @@
+<%= current_user.favorite_microposts.inspect %>
+<% current_user.favorite_microposts.each do |favorite| %>
+<li>
+    <%= favorite.id %>
+    <%= favorite.content %>
+</li>
+<% end %>

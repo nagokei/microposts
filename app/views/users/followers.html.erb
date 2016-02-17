@@ -1,0 +1,27 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+    <section>
+      <%= render 'shared/follow' %>
+    </section>
+  </aside>
+  <div class="col-md-8">
+  <% if @user.follower_relactionships.any? %>
+    <h3>Followers (<%= @user.follower_relactionships.count %>)</h3>
+    <ol class="following">
+    <% @followers.each do |follower| %>
+      <li>
+        <%= link_to gravatar_for(follower, size: 50), follower %>
+        <span class="user"><%= link_to follower.name, follower %></span>
+        <span class="profile"><%= follower.profile %></span>
+      </li>
+    <% end %>
+    </ol>
+  <% end %>
+  </div>
+</div>
