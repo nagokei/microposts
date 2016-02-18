@@ -1,7 +1,11 @@
-<%= current_user.favorite_microposts.inspect %>
-<% current_user.favorite_microposts.each do |favorite| %>
-<li>
+<% if logged_in? %>
+  <% current_user.favorite_microposts.each do |favorite| %>
+  <p style="clear:both;">
     <%= favorite.id %>
     <%= favorite.content %>
-</li>
+    <% @user = User.find(favorite.user_id) %>
+    <%= link_to gravatar_for(@user, size: 50), @user %>
+    <%= @user.name %>
+  </p>
+  <% end %>
 <% end %>

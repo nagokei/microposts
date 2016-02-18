@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  #get 'favorites/create'
-
-  #get 'favorites/destroy'
-
   root to: 'static_pages#home'
   get 'signup',    to: 'users#new'
   get 'login',     to: 'sessions#new'
@@ -14,7 +10,10 @@ Rails.application.routes.draw do
   
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :microposts
+  resources :microposts do
+    post 'retweet', on: :member
+  end
   resources :relationships, only: [:create, :destroy]
   resources :favorites, only: [:show, :create, :destroy]
+  # resources :retweets, only: [:create]
 end

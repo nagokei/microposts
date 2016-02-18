@@ -2,7 +2,8 @@ class FavoritesController < ApplicationController
   before_action :logged_in_user
   
   def show
-    @micropost = current_user
+    # @microposts = current_user.favorite_microposts
+    # @user = 
   end
   
   def create

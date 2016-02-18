@@ -7,7 +7,8 @@
     <% if current_user == micropost.user %>
       <%= link_to "delete", micropost, method: :delete, data: { confirm: "You sure?" } %>
     <% else %>
-      <div><%= render partial: 'users/favorite_form', :locals => { :micropost => micropost } %></div>
+      <p><%= render partial: 'users/favorite_form', :locals => { :micropost => micropost } %></p>
+      <p><%= render partial: 'microposts/retweet_form', :locals => { :micropost => micropost } %></p>
     <% end %>
   </span>
 </li>

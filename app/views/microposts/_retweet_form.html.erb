@@ -1,0 +1,5 @@
+<%= form_for(Micropost.new, url: retweet_micropost_path(micropost)) do |f|%>
+  <%= button_tag(class: "btn btn-default btn-sm") do %>
+    <%= content_tag :span, '', class: "glyphicon glyphicon-retweet" %>
+  <% end %>
+<% end %>
