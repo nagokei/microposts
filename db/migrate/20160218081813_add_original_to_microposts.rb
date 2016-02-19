@@ -1,5 +1,5 @@
 class AddOriginalToMicroposts < ActiveRecord::Migration
   def change
-    add_reference :microposts, :original, index: true, foreign_key: true
+    add_reference :microposts, :original, index: true
   end
 end
