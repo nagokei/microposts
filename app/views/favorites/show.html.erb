@@ -1,11 +1,20 @@
 <% if logged_in? %>
-  <% current_user.favorite_microposts.each do |favorite| %>
-  <p style="clear:both;">
-    <%= favorite.id %>
-    <%= favorite.content %>
-    <% @user = User.find(favorite.user_id) %>
-    <%= link_to gravatar_for(@user, size: 50), @user %>
-    <%= @user.name %>
-  </p>
+  <h3>Favorite</h3>
+  <% if current_user.favorites.any? %>
+    <ol class="microposts">
+    <% current_user.favorite_microposts.each do |favorite| %>
+    <li style="clear:both;">
+      <% @user = User.find(favorite.user_id) %>
+      <%= link_to gravatar_for(@user, size: 50), @user %>
+      <span class="user"><%= link_to @user.name, @user %>
+      <span class="content"><%= favorite.content %></span>
+      <span class="timestamp">
+        Posted <%= time_ago_in_words(@user.created_at) %> ago.
+      </span>
+    </li>
+    <% end %>
+    </ol>
+  <% else %>
+    <div class="alert alert-danger" role="alert">any favorite any...</div>
   <% end %>
 <% end %>

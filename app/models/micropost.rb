@@ -11,17 +11,16 @@ class Micropost < ActiveRecord::Base
                            
                            
   # retweet
-  has_many :retweets,      class_name: 'Micropost',
-                           foreign_key: 'original_id'
-  belongs_to :original,    class_name: 'Micropost',
-                           foreign_key: 'id'
+  # has_many :retweets,      class_name: 'Micropost',
+  #                          foreign_key: 'original_id'
+  # belongs_to :original,    class_name: 'Micropost',
+  #                          foreign_key: 'id'
                            
-  def retweet(micropost)
-    retweets.find_or_create_by(original_id: micropost.id)
-  end
+  # def retweet(micropost)
+  #  retweets.find_or_create_by(original_id: micropost.id)
+  #end
  
-  def retweet?(micropost)
-    
-  end
+  #def retweet?(micropost)
+  #end
    
 end
